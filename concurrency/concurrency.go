@@ -47,9 +47,3 @@ func main() {
   fmt.Println(result[len(result)-1])
   log.Print("Finish")
 }
-
-func boom(ch chan int, i int) {
-  time.Sleep(1000)
-  // レポート入れる
-  ch <- i
-}
