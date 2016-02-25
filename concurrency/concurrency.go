@@ -1,18 +1,18 @@
 package main
 
 import (
-  "fmt"
-  "time"
-  "log"
+	"fmt"
+	"log"
+	"time"
 )
 
 func listenChannel(queue chan int, b bool) {
-  for out := range queue {
-    time.Sleep(10000)
-    result = append(result, out)
-    fmt.Println(b)
-  }
-  fmt.Println("Finish!!!!")
+	for out := range queue {
+		time.Sleep(10000)
+		result = append(result, out)
+		fmt.Println(b)
+	}
+	fmt.Println("Finish!!!!")
 }
 
 var result = make([]int, 0, 100)
@@ -21,29 +21,29 @@ var fin = make(chan int)
 
 func main() {
 
-  finishTime := time.Now().Add(1 * time.Second)
+	finishTime := time.Now().Add(1 * time.Second)
 
-  queue := make(chan int)
+	queue := make(chan int)
 
-  go listenChannel(queue, true)
-  go listenChannel(queue, false)
+	go listenChannel(queue, true)
+	go listenChannel(queue, false)
 
-  //conc := 5
+	//conc := 5
 
- // 時間になるまで、リクエストをqueue にいれて、
- // listenChannnel の方でリクエストを送る
- i := 0
- log.Print("Start")
-  for {
-    i++
-    if time.Now().Before(finishTime) {
-      queue <- i
-    } else {
-      fmt.Println(i)
-      break
-    }
-  }
+	// 時間になるまで、リクエストをqueue にいれて、
+	// listenChannnel の方でリクエストを送る
+	i := 0
+	log.Print("Start")
+	for {
+		i++
+		if time.Now().Before(finishTime) {
+			queue <- i
+		} else {
+			fmt.Println(i)
+			break
+		}
+	}
 
-  fmt.Println(result[len(result)-1])
-  log.Print("Finish")
+	fmt.Println(result[len(result)-1])
+	log.Print("Finish")
 }
