@@ -1,0 +1,8 @@
+HTTP/1.1 303 See Other
+Location: /
+Set-Cookie: mysssion=MTQ1NjczNDEyMXxEdi1CQkFFQ180SUFBUkFCRUFBQUd2LUNBQUVHYzNSeWFXNW5EQVVBQTNWcFpBTnBiblFFQWdBQ3wjEtQoI3Ny866_0b5DLm9Ae5ieAm35je301c9h4089Yw==; HttpOnly
+Date: Mon, 29 Feb 2016 08:22:01 GMT
+Content-Length: 0
+Content-Type: text/plain; charset=utf-8
+Connection: close
+
